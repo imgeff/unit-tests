@@ -13,14 +13,21 @@
 */
 
 const average = (array) => {
+if (array.length === 0) {
+  return undefined;
+}
   // Calcula a Média
-    let mediaNumber = 0;
-    let soma = 0;
-      for (let index = 0; index < array.length; index += 1) {
-      soma += array[index];
-      mediaNumber = Math.round(soma / array.length);
-    }
-    return mediaNumber;
+let mediaNumber = 0;
+let soma = 0;
+for (let index = 0; index < array.length; index += 1) {
+  if (typeof (array[index]) === 'number') {
+    soma += array[index];
+    mediaNumber = Math.round(soma / array.length);
+  } else if (typeof array[index] !== 'number') {
+    return undefined;
+  }
+}
+return mediaNumber;
 };
 
 module.exports = average;
