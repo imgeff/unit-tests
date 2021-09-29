@@ -12,10 +12,15 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const average = () => {
-  // add your implementation here
-  
-}
+const average = (array) => {
+  // Calcula a Média
+    let mediaNumber = 0;
+    let soma = 0;
+      for (let index = 0; index < array.length; index += 1) {
+      soma += array[index];
+      mediaNumber = Math.round(soma / array.length);
+    }
+    return mediaNumber;
+};
 
-module.exports = average
-
+module.exports = average;
