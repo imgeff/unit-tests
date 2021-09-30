@@ -26,6 +26,8 @@ const circle = require('../src/circle');
 describe('4 - Implemente os casos de teste para a função `circle`', () => {
   it('Verifica se ao receber um raio, a função `circle` retorna um objeto contedos os valores esperados', () => {
     // ESCREVA SEUS TESTES ABAIXO:
+    // Ao olhar o código do Otávio Cantareli em uma thread de Dúvida No Requisito 4, vi o ToHaveProperty e isso me ajudou a resolver esse requisito!
+    const PI = 3.14;
     // Teste se circle retorna undefined, caso o parâmetro passado não seja um número.
     expect(circle('a')).toBe(undefined)
     // Teste se circle retorna um objeto.
@@ -35,14 +37,11 @@ describe('4 - Implemente os casos de teste para a função `circle`', () => {
     // Teste se a função, quando não recebe nenhum parâmetro, retorna undefined.
     expect(circle()).toBe(undefined)
     // Teste que a função retorna, dentro de um objeto, a circunferência correta para um círculo de raio 2.
-    expect(circle(2).circumference).toBeCloseTo(parseFloat((0.2 + 0.1).toPrecision(2)))
+    expect(circle(2)).toHaveProperty('circumference', 2 * PI * 2)
     // Teste que a função retorna, dentro de um objeto, a área correta para um círculo de raio 3.
-    expect(circle(3)).toEqual(parseFloat(3,14 * 3 * 3).toPrecision(2))
+    expect(circle(3)).toHaveProperty('area', PI * 3 * 3)
     // Teste que a função retorna, num objeto, os dados corretos de um círculo de raio 3.
-    expect(circle(3)).toEqual({
-      radius,
-      area: PI * 3 * 3,
-      circumference: 2 * PI * 3,
+    expect(circle(3)).toEqual({ radius: 3, area: PI * 3 * 3, circumference: 2 * PI * 3,
     })
   });
 });
